@@ -1,0 +1,16 @@
+#! /bin/zsh
+
+echo “Benvenuto!”
+
+echo “Inserisci IP iniziale range : ”
+read ip
+
+echo “Inserisci ultimo ottetto range: ”
+read ott
+
+echo “Inserisci porta target: ”
+read port
+
+nmap -sS $ip-$ott -p $port
+
+echo  “Scansione eseguita!”
