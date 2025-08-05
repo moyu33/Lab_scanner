@@ -1,22 +1,26 @@
 #! /bin/zsh
 
-echo “Benvenuto!”
+echo “Welcome!”
 
-echo “Inserisci IP iniziale range : ”
+# Insert start range ip target
+echo “Insert first IP range target: ”
 read ip
 
-echo “Inserisci ultimo ottetto range: ”
+# Insert end range ip target
+echo “Insert last octect range target: ”
 read ott
 
-echo “Inserisci porta target: ”
+# Insert port number target
+echo “Insert port target: ”
 read port
 
+# Launch nmap scanner against ip range & port selected
 nmap -sS $ip-$ott -p $port
 
-echo  “Scansione eseguita!”
+echo  “Scanner exceuted!”
 
 # DISCLAIMER:
 # This script is for educational and demonstration purposes only.
 # It is intended to be used in controlled, legal environments such as labs or CTF challenges.
-# Using John the Ripper against systems you do not own or lack explicit authorization to test is illegal.
+# Using nmap against systems you do not own or lack explicit authorization to test is illegal.
 # The author is not responsible for any misuse or damage resulting from the execution of this script.
