@@ -14,7 +14,7 @@ read ott
 echo "Insert port target (NB. IF YOU WANT SCAN ALL PORTS SCANNER DIGIT 0!) : "
 read port
 
-# Launch nmap scanner against ip range & port selected
+# Launch nmap scanner against ip range & port selected and save results in file.txt in current directory
 if [[ $port -eq 0 ]]; then
   nmap -Pn -sS -sU -p- "$ip-$ott" -T4 -vv --reason --open -oN result_scan_all.txt
 else
