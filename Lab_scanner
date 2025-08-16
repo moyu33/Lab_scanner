@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "Welcome!"
+
+# Insert start range ip target 
+echo "Insert first IP range target: "
+read ip
+
+# Insert end range ip target
+echo "Insert last octect range target: "
+read ott
+
+# Insert port number target NB. !IF YOU WANT SCAN ALL PORTS SCANNER DIGIT 0!
+echo "Insert port target (NB. IF YOU WANT SCAN ALL PORTS SCANNER DIGIT 0!) : "
+read port
+
+# Launch nmap scanner against ip range & port selected
+if [[ $port -eq 0 ]]; then
+  nmap -Pn -sS -sU -p- "$ip-$ott" -T4 -vv --reason --open -oN result_scan_all.txt
+else
+  nmap -sS "$ip-$ott" -p "$port" -vv --reason --open -oN result_scan_"$port".txt
+fi
+
+# End scan
+echo  "Scan exceuted!!"
