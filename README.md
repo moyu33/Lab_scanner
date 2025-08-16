@@ -1,2 +1,1 @@
-# Lab_scanner_all_ports
-Questo è un laboratorio in cui è presente uno script shell. NOTA: questo laboratorio è a scopo didattico e didattico.
+DISCLAIMER: Questo script è solo a scopo didattico e dimostrativo. È destinato all'uso in ambienti controllati e legali, come laboratori o sfide CTF. È illegale utilizzare Bettercap su sistemi di cui non si è proprietari o per i quali non si è autorizzati esplicitamente a testare. L'autore non è responsabile per eventuali usi impropri o danni derivanti dall'esecuzione di questo script.
