@@ -14,11 +14,25 @@ read ott
 echo "Insert port target (NB. IF YOU WANT SCAN ALL PORTS SCANNER DIGIT 0!) : "
 read port
 
+# Choose if you want use decoy IP
+echo "Do you want to use decoy? (y/n): "
+read use_decoy
+
+# Initialization variable to accumulate decoy if you choose “y”
+decoy_option=""
+
+# If you choose “y” launch input to create decoy IP 
+if [[ "$use_decoy" == "y" ]]; then
+  echo "Insert decoy IP separated by commas and insert “ME” at the end of the list: "
+  read decoy_ip
+  decoy_option="-D $decoy_ip"
+fi
+
 # Launch nmap scanner against ip range & port selected and save results in file.txt in current directory
 if [[ $port -eq 0 ]]; then
-  nmap -Pn -sS -sU -p- "$ip-$ott" -T4 -vv --reason --open -oN result_scan_all.txt
+  nmap -Pn -sS -sU -p- $decoy_option "$ip-$ott" -T4 -vv --reason --open -oN result_scan_all.txt
 else
-  nmap -sS "$ip-$ott" -p "$port" -vv --reason --open -oN result_scan_"$port".txt
+  nmap -sS $decoy_option "$ip-$ott" -p "$port" -vv --reason --open -oN result_scan_"$port".txt
 fi
 
 # End scan
